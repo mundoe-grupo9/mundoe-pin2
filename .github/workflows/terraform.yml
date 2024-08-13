@@ -3,18 +3,19 @@ name: Terraform
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: 
+        - main
     # paths: ["terraform/**"]
 
-  pull_request:
-    branches: [main]
-    # paths: ["terraform/**"]
+  # pull_request:
+  #   branches: [main]
+  #   # paths: ["terraform/**"]
 
 jobs:
   plan:
     name: Terraform plan
-    runs-on: ubuntu-20.04
-    env: main
+    runs-on: ubuntu-latest
+    environment: main
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js 14.x
