@@ -12,7 +12,7 @@ on:
   #   # paths: ["terraform/**"]
 
 jobs:
-  Validate:
+  validate:
     name: Terraform Validate
     runs-on: ubuntu-latest
     environment: main
@@ -30,13 +30,15 @@ jobs:
           aws-region: us-east-1
       - name: Terraform Validate
         run: |
-          cd terraform 
+          cd terraform
+          terraform init  
           terraform validate
 
   plan:
     name: Terraform plan
     runs-on: ubuntu-latest
     environment: main
+    needs: validate
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js 14.x
