@@ -12,6 +12,27 @@ on:
   #   # paths: ["terraform/**"]
 
 jobs:
+  Validate:
+    name: Terraform Validate
+    runs-on: ubuntu-latest
+    environment: main
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Terraform Validate
+        run: |
+          cd terraform 
+          terraform validate
+
   plan:
     name: Terraform plan
     runs-on: ubuntu-latest
@@ -34,26 +55,25 @@ jobs:
           terraform init 
           terraform plan
 
-  # deploy:
-  #   name: Terraform Deploy
-    # env: main
-  #   needs: plan
-  #   if: github.ref == 'refs/heads/main'
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Use Node.js 14.x
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 14.x
-  #     - name: Configure AWS credentials
-  #       uses: aws-actions/configure-aws-credentials@v2
-  #       with:
-  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #         aws-region: us-east-1
-  #     - name: Initialise project and deploy terraform
-  #       run: |
-  #         cd terraform
-  #         terraform init
-  #         terraform apply--auto-approve=true
+  deploy:
+    name: Terraform Deploy
+    environment: main_approved
+    needs: plan
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Initialise project and deploy terraform
+        run: |
+          cd terraform
+          terraform init
+          terraform apply--auto-approve=true
