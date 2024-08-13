@@ -77,8 +77,8 @@ jobs:
       - name: Initialise project and plan
         run: |
           cd terraform
-          terraform init
+          terraform init -input=false
           terraform plan
       - name: Deploy terraform
         run: |
-          terraform apply --auto-approve=true
+          terraform apply -auto-approve
