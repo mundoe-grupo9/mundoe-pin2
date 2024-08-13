@@ -1,5 +1,5 @@
 //// EC2 ////
-instance_name = "my-instances-grupo8"
+instance_name = "my-instances-grupo8-test"
 
 //// NTW ////
 sub_public_availability_zone  = "a"
