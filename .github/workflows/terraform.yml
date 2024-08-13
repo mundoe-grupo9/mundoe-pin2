@@ -81,4 +81,5 @@ jobs:
           terraform plan
       - name: Deploy terraform
         run: |
+          cd terraform
           terraform apply -auto-approve
