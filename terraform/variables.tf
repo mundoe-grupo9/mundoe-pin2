@@ -28,7 +28,7 @@ variable "instance_name" {
 variable "AWS_INSTANCE_TYPE" {
   description = "AWS EC2 Instance Type"
   type        = string
-  default     = "t2.medium"
+  default     = "t3.medium"
 }
 
 variable "AWS_AMI" {

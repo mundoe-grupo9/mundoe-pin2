@@ -52,6 +52,7 @@ jobs:
 
   apply:
     name: Terraform Apply
+    environment: main_approved
     runs-on: ubuntu-20.04
     needs: plan
     steps:
