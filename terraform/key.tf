@@ -1,5 +1,0 @@
-resource "aws_key_pair" "deployer" {
-  key_name   = "deployer-key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8uCzhaKaja9jmdi8f1I8uE25VBsuMstM4+4FLhsC9QiANU8gvI3dKSBvGb2zxXatnc4qiRMAQ1p1YclYKnWc8Z13C5j+Onh2SJE5kwHt9uIK5nK1Sr3Rx//3HNtWp0LJMMDlmc6iHg6kshyxm1N6UF9mMazauMo6S16U/ceNEr7KEbHBrUzaTBqLyQadCCCNNYxhw/r7lR3c4it8X6iYmv7lCA4n7AtYlUl0axFVw6NOobasTyyiXMGATEM54s1uz+9a8/pC7Yd/omASTeQB1fS5CoGGBgG3nZip5W/Sxg+GGP3ia3fgUN0FqlXf+tk7/Yg/uioaYpEbnoGIogdTWnlINCJhcNb/KDHdAxFFxCteS0y+nxB7qKniKZyMgBK0Jc5G+mihjTDep5ghM4G51vrpgDOTmZ5DjOYOhxKan9/WCg7vpFw/OghvwY9YozDWTpZPXldnbSEgoy82lyLLVXiaj6DTbYW8kVSn4RAosxfWxzTiSpwrdGOC1jOzwg3c= dgfeversani@T0003583937"
-
-}

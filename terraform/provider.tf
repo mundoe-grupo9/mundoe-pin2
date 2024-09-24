@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket         = "grupo9-terraform-test"
     dynamodb_table = "terraform_state"
-    key            = "pin2"
+    key            = "kubernetes"
     region         = "us-east-1"
   }
 
