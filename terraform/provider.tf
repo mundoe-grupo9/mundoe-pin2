@@ -14,7 +14,7 @@ terraform {
   }
 
   # backend "pg" {
-  #   conn_str = "postgres://PGUSER:PGPASSWORD@PGURL/PGDB"
+  #   conn_str = "postgres://PGUSER:PGPASSWORD@PGURL/PGDB -"
   # }
 
 }
