@@ -28,6 +28,9 @@ jobs:
       - name: Terraform Validate
         working-directory: terraform
         run: terraform validate
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   plan:
     name: Terraform Plan
@@ -49,6 +52,9 @@ jobs:
       - name: Terraform Plan
         working-directory: terraform
         run: terraform plan
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   apply:
     name: Terraform Apply
