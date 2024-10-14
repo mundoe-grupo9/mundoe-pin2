@@ -8,9 +8,9 @@ terraform {
 
   backend "s3" {
     bucket         = "grupo9-terraform-test"
-    dynamodb_table = "terraform_state"
-    key            = "pin2"
+    key            = "terraform/state"
     region         = "us-east-1"
+    encrypt        = true
   }
 
   # backend "pg" {
